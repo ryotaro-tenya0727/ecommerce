@@ -15,6 +15,12 @@ Rails.application.routes.draw do
   end
   scope module: :customer do
     resources :products, only: %i[index show]
+    resources :cart_items, only: %i[index create destroy] do
+      member do
+        patch 'increase'
+        patch 'decrease'
+      end
+    end
   end
 
   # Sidekiq has a web dashboard which you can enable below. It's turned off by
