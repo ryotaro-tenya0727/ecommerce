@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :products, only: %i[index show new create edit update]
   end
+  scope module: :customer do
+    resources :products, only: %i[index show]
+  end
 
   # Sidekiq has a web dashboard which you can enable below. It's turned off by
   # default because you very likely wouldn't want this to be available to
