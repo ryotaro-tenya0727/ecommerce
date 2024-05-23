@@ -21,6 +21,8 @@ Rails.application.routes.draw do
         patch 'decrease'
       end
     end
+    resources :checkouts, only: [:create]
+    resources :webhooks, only: [:create]
   end
 
   # Sidekiq has a web dashboard which you can enable below. It's turned off by
