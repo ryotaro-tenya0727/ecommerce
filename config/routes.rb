@@ -11,7 +11,9 @@ Rails.application.routes.draw do
   get '/up/', to: 'up#index', as: :up
   get '/up/databases', to: 'up#databases', as: :up_databases
   namespace :admin do
+    root to: 'pages#home'
     resources :products, only: %i[index show new create edit update]
+    resources :orders, only: %i[show update]
   end
   scope module: :customer do
     resources :products, only: %i[index show]
