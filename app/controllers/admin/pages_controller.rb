@@ -3,6 +3,7 @@ class Admin::PagesController < ApplicationController
 
   def home
     @orders, @selected = get_orders(params)
+    @orders = @orders.eager_load(:customer)
     today_orders = Order.created_today
     @today_total_orders = total_orders(today_orders)
     @today_total_sales = total_sales(today_orders)
