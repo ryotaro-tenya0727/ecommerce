@@ -31,6 +31,12 @@ Rails.application.routes.draw do
         get 'success'
       end
     end
+    resources :customers do
+      collection do
+        get 'confirm_withdraw'
+        patch 'withdraw'
+      end
+    end
   end
 
   # Sidekiq has a web dashboard which you can enable below. It's turned off by
